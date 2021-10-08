@@ -1,0 +1,21 @@
+
+N = input('Введите последнее число последовательности N = ')
+
+if N.isdigit():
+    N = int(N)
+
+    b = []
+    for i in range(2,N + 1):
+        b.append(i)
+
+    for j in range(2,int(N ** 0.5) + 2):
+        for i in range(len(b)):
+            if (b[i] % j == 0 and b[i] != j) and b[i] != 2:
+                b.remove(b[i])
+                b.append(0)
+
+    for i in range(len(b)):
+        if b[i] != 0:
+            print(b[i])
+else:
+    print('Ошибка Введите число')
