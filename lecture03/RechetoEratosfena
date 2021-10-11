@@ -1,0 +1,27 @@
+N = input('Введите границу обрабатываемой последовательности,\
+в которой хотите найти все простые числа N = ')
+
+if N.isdigit():
+    N = int(N)
+    
+    n = []
+    i = 2 
+    while i <= N: 
+        n.append(i)
+        i = i + 1 
+    p = 2 
+while p ** 2 < N:
+    k = 0
+    while k < len(n):
+        if (n[k] % p == 0 and n[k] != p):
+            del n[k]
+        k = k + 1
+    h = 0
+    while h < len(n):
+        if n[h] > p:
+            j = n[h]
+            break
+        else:
+            h = h + 1
+    p = j
+print("Простые числа в данном массиве" , n)
